@@ -10,6 +10,7 @@ interface params {
     communityId: string | null;
     path: string;
 }
+
 export async function createThread({
     text,
     author,
@@ -66,4 +67,31 @@ export async function fetchPosts(pageNumber = 1, pageSize = 20) {
         const isNext = totalPostsCount > skipAmount + posts.length;
 
         return { posts, isNext };
+}
+
+export async function fetchThreadById(threadId: string) {
+    connectToDB();
+
+    try {
+        //TODO: populate community and children
+        const thread = await Thread.findById(threadId)
+            .populate({
+                path: 'author',
+                model: User,
+                select: "_id name image"
+            })
+            .populate({
+                path: 'children',
+                populate: {
+                    path: 'author',
+                    model: User,
+                    select: '_id name parentId image'
+                }
+            }).exec();
+
+            return thread;
+    } catch (error: any) {
+        throw new Error(`Error fetching thread: ${error.message}`);
+
+    }
 }
