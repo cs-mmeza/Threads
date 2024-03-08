@@ -82,11 +82,22 @@ export async function fetchThreadById(threadId: string) {
             })
             .populate({
                 path: 'children',
-                populate: {
-                    path: 'author',
-                    model: User,
-                    select: '_id name parentId image'
-                }
+                populate: [
+                    {
+                        path: 'author',
+                        model: User,
+                        select: '_id name parentId image'
+                    },
+                    {
+                        path: 'children',
+                        model: Thread,
+                        populate: {
+                            path: 'author',
+                            model: User,
+                            select: '_id id name parentId image'
+                        },
+                    },
+                ],
             }).exec();
 
             return thread;
@@ -119,10 +130,10 @@ export async function addCommentToThread(
                 parentId: threadId,
             })
 
-            //save the new thread
+            // Save the comment thread to the database
             const savedCommentThread = await commentThread.save();
 
-            //update the original thread by adding the new comment to the children
+             // Add the comment thread's ID to the original thread's children array
             originalThread.children.push(savedCommentThread._id);
 
             //save original thread
