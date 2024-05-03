@@ -25,7 +25,7 @@ const page = async ({ params }: { params: { id: string } }) => { //params next.j
                     parentId={thread.parentId}
                     content={thread.text}
                     author={thread.author}
-                    communityId={thread.communityId}
+                    community={thread.community}
                     createdAt={thread.createdAt}
                     comments={thread.children}
                 />
@@ -46,7 +46,7 @@ const page = async ({ params }: { params: { id: string } }) => { //params next.j
                         parentId  ={childItem.parentId}
                         content={childItem.text}
                         author={childItem.author}
-                        communityId={childItem.communityId}
+                        community={childItem.community}
                         createdAt={childItem.createdAt}
                         comments={childItem.children}
                         isComment
