@@ -11,7 +11,7 @@ interface Props{
         image: string;
         name: string;
     }
-    communityId: {
+    community: {
         id: string;
         name: string;
         image: string;
@@ -31,7 +31,7 @@ const ThreadCard = ({
     parentId,
     content,
     author,
-    communityId,
+    community,
     createdAt,
     comments,
     isComment
