@@ -1,3 +1,39 @@
+# Threads App Clone
+This repository contains a project that replicates the functionality of the popular Threads app. Threads is a platform where users can create accounts, post threads, and engage with other users' content. This clone project aims to provide similar features and functionalities using modern web development tools and technologies.
+
+Technologies Used:
+- Next.js
+- React
+- TypeScript
+- Zod: Used for schema declaration and validation to ensure data consistency and integrity.
+- MongoDB: A NoSQL database used for storing user account information and thread data.
+- Mongoose: An ODM (Object Data Modeling) library for MongoDB and Node.js.
+- Clerk: Provides user authentication functionality, enabling users to create accounts and securely log in.
+- Clerk Webhooks: Utilized for handling authentication events and integrating with other systems.
+- TailwindCSS: A utility-first CSS framework for building custom and responsive user interfaces.
+- Shadcn-UI: A UI component library used for creating a visually appealing and consistent user interface design.
+
+## Features
+- User Account Creation: Users can create accounts by providing basic information such as name, email, and bio.
+- User Authentication: Utilizing Clerk for secure user authentication, ensuring that user accounts are protected.
+- Thread Posting: Authenticated users can create threads and share content with other users.
+- User Activity: The app displays user activity and information related to each user's account, enhancing engagement and interaction within the platform.
+
+## Getting Started
+To run this project locally, follow these steps:
+
+1. Clone the repository to your local machine.
+2. Install dependencies using npm install or yarn install.
+3. Set up a MongoDB database and configure the connection settings in the project.
+4. Set up Clerk for user authentication and configure the necessary environment variables.
+5. Run the development server using npm run dev or yarn dev.
+6. Access the app in your web browser at the specified localhost address.
+
+## Source
+Figma UI and project code bases provided by [adrianhajdin](https://github.com/adrianhajdin/adrianhajdin) > [tutorial](https://github.com/adrianhajdin/threads/blob/main/README.md)
+
+____
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
